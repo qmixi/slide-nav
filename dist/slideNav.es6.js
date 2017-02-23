@@ -75,7 +75,6 @@ class SlideNav {
 				offset = this.scrollDoc.scrollTop;
 
 			if(section && (section.offsetTop <= offset) && (section.offsetTop + section.offsetHeight > offset)) {
-				console.log("piesa");
 				for(let link of this.navAnchors) {
 					if(link.href != anchor.href) link.classList.remove('active');
 				}

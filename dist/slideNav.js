@@ -119,7 +119,6 @@ var SlideNav = function () {
 					    offset = this.scrollDoc.scrollTop;
 
 					if (section && section.offsetTop <= offset && section.offsetTop + section.offsetHeight > offset) {
-						console.log("piesa");
 						var _iteratorNormalCompletion3 = true;
 						var _didIteratorError3 = false;
 						var _iteratorError3 = undefined;
