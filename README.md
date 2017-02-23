@@ -1,7 +1,7 @@
 ES6 Vanilla.js navigation plugin to simple use on one-page websites.
 
-### Basic Example
-##Sample Markup:
+## Basic Example
+###Sample Markup:
 <pre>
 &lt;nav>
     &lt;a href="#section1>Link to section1&lt;/a>
@@ -30,14 +30,14 @@ ES6 Vanilla.js navigation plugin to simple use on one-page websites.
 &lt;/div>
 </pre>
 
-## Initialization:
+### Initialization:
 <pre>
 var nav = new SlideNav();
 </pre>
 
-### More complex example
+## More complex example
 
-##Sample Markup:
+###Sample Markup:
 <pre>
 &lt;div class="hamburger">
     &lt;div class="hamburger-line">&lt;/div>
@@ -73,7 +73,7 @@ var nav = new SlideNav();
 &lt;/div>
 </pre>
 
-## Initialization:
+### Initialization:
 <pre>
 var nav = new SlideNav({
     activeClass: "active",
