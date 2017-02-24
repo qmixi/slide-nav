@@ -22,7 +22,7 @@ var SlideNav = function () {
 		this.activeClass = options.activeClass || 'active';
 		this.toggleButtonSelector = options.toggleButtonSelector || false;
 		this.toggleBoxSelector = options.toggleBoxSelector || false;
-		this.speed = options.speed > 0 ? options.speed : 250;
+		this.speed = options.speed > 0 ? options.speed : 70;
 		this.hideAfterSelect = options.hideBoxAfterSelect || true;
 		this.changeHash = options.changeHash || false;
 		this.navBoxToggleClass = options.navBoxToggleClass || false;
@@ -120,9 +120,10 @@ var SlideNav = function () {
 
 					var linkHash = this.getHash(anchor.href),
 					    section = this.getSection(linkHash),
-					    offset = this.scrollDoc.scrollTop;
+					    offset = this.scrollDoc.scrollTop,
+					    scrollHeight = this.scrollDoc.scrollHeight;
 
-					if (section && section.offsetTop <= offset && section.offsetTop + section.offsetHeight > offset) {
+					if (section && (section.offsetTop <= offset && section.offsetTop + section.offsetHeight > offset || offset + window.innerHeight == scrollHeight)) {
 						var _iteratorNormalCompletion3 = true;
 						var _didIteratorError3 = false;
 						var _iteratorError3 = undefined;
@@ -185,14 +186,14 @@ var SlideNav = function () {
 			var _this2 = this;
 
 			var diffOffset = destOffset - this.scrollDoc.scrollTop,
-			    partDist = diffOffset / duration * 8;
+			    partDist = diffOffset / duration * 1;
 
 			if (duration <= 0) return;
 			setTimeout(function () {
 				_this2.scrollDoc.scrollTop = _this2.scrollDoc.scrollTop + partDist;
 				if (_this2.scrollDoc.scrollTop == destOffset) return;
-				_this2.scrollTo(destOffset, duration - 8);
-			}, 8);
+				_this2.scrollTo(destOffset, duration - 1);
+			}, 1);
 		}
 	}, {
 		key: 'goToUrl',

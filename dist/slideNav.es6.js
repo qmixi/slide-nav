@@ -15,7 +15,7 @@ class SlideNav {
 		this.activeClass = options.activeClass || 'active';
 		this.toggleButtonSelector = options.toggleButtonSelector || false;
 		this.toggleBoxSelector = options.toggleBoxSelector || false;
-		this.speed = options.speed > 0 ? options.speed : 250;
+		this.speed = options.speed > 0 ? options.speed : 70;
 		this.hideAfterSelect = options.hideBoxAfterSelect || true;
 		this.changeHash = options.changeHash || false;
 		this.navBoxToggleClass = options.navBoxToggleClass || false;
@@ -76,9 +76,10 @@ class SlideNav {
 		for(let anchor of this.navAnchors) {
 			const linkHash = this.getHash(anchor.href),
 				section = this.getSection(linkHash),
-				offset = this.scrollDoc.scrollTop;
+				offset = this.scrollDoc.scrollTop,
+				scrollHeight = this.scrollDoc.scrollHeight;
 
-			if(section && (section.offsetTop <= offset) && (section.offsetTop + section.offsetHeight > offset)) {
+			if(section && (((section.offsetTop <= offset) && (section.offsetTop + section.offsetHeight > offset)) || ((offset + window.innerHeight) == scrollHeight))) {
 				for(let link of this.navAnchors) {
 					if(link.href != anchor.href) link.classList.remove('active');
 				}
@@ -101,14 +102,14 @@ class SlideNav {
 
 	scrollTo(destOffset, duration) {
 		const diffOffset = destOffset - this.scrollDoc.scrollTop,
-			partDist = diffOffset / duration * 8;
+			partDist = diffOffset / duration * 1;
 
 		if (duration <= 0) return;
 		setTimeout(() => {
 			this.scrollDoc.scrollTop = this.scrollDoc.scrollTop + partDist;
 			if (this.scrollDoc.scrollTop == destOffset) return;
-			this.scrollTo(destOffset, duration - 8);
-		}, 8);
+			this.scrollTo(destOffset, duration - 1);
+		}, 1);
 	}
 
 	goToUrl(url) {
