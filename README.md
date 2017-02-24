@@ -1,5 +1,8 @@
 ES6 Vanilla.js navigation plugin to simple use on one-page websites.
 
+http://qmixi.github.io/slide-nav
+
+
 ## Basic Example
 ###Sample Markup:
 <pre>
