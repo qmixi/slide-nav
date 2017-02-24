@@ -32,14 +32,17 @@ h1, p {
 	background: #5c53aa;
 	color: #8d86c3;
 }
+
 #section2 {
 	background: #4bbfc3;
 	color: #81d2d5;
 }
+
 #section3 {
 	background: #283044;
 	color: #686e7c;
 }
+
 #section4 {
 	background: #ebf5ee;
 	color: #aeb9b9;
@@ -65,7 +68,7 @@ h1 {
 }
 
 .nav {
-	position: fixed;	/*left: 50%;*/
+	position: fixed; /*left: 50%;*/
 	width: 100%;
 	top: 20px;
 	z-index: 9;
@@ -95,4 +98,12 @@ h1 {
 
 .nav a:hover {
 	background: rgba(255, 255, 255, 0.7);
+}
+
+.fork-wr img {
+	position: fixed;
+	z-index: 99;
+	top: 0;
+	right: 0;
+	border: 0;
 }
