@@ -18,6 +18,7 @@ var SlideNav = function () {
 		_classCallCheck(this, SlideNav);
 
 		//default values
+		if (!options) var options = {};
 		this.activeClass = options.activeClass || 'active';
 		this.toggleButtonSelector = options.toggleButtonSelector || false;
 		this.toggleBoxSelector = options.toggleBoxSelector || false;
@@ -62,11 +63,14 @@ var SlideNav = function () {
 				}
 			});
 			// toggle button
-			this.toggleButton.addEventListener("click", function (e) {
-				setTimeout(function () {
-					_this.opened ? _this.hideNavBox() : _this.showNavBox();
+			if (this.toggleButton) {
+				this.toggleButton.addEventListener("click", function (e) {
+					setTimeout(function () {
+						_this.opened ? _this.hideNavBox() : _this.showNavBox();
+					});
 				});
-			});
+			};
+
 			// anchors
 			var _iteratorNormalCompletion = true;
 			var _didIteratorError = false;

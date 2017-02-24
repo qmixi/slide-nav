@@ -11,6 +11,7 @@ class SlideNav {
 
 	constructor(options) {
 		//default values
+		if(!options) var options = {};
 		this.activeClass = options.activeClass || 'active';
 		this.toggleButtonSelector = options.toggleButtonSelector || false;
 		this.toggleBoxSelector = options.toggleBoxSelector || false;
@@ -49,11 +50,14 @@ class SlideNav {
 			}
 		});
 		// toggle button
-		this.toggleButton.addEventListener("click", (e) => {
-			setTimeout(() => {
-				this.opened ? this.hideNavBox() : this.showNavBox();
+		if(this.toggleButton) {
+			this.toggleButton.addEventListener("click", (e) => {
+				setTimeout(() => {
+					this.opened ? this.hideNavBox() : this.showNavBox();
+				});
 			});
-		});
+		};
+
 		// anchors
 		for(let anchor of this.navAnchors) {
 			anchor.addEventListener("click", (e) => {
