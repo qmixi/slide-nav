@@ -11,7 +11,7 @@ class SlideNav {
 
 	constructor(options) {
 		//default values
-		if(!options) var options = {};
+		if (!options) var options = {};
 		this.activeClass = options.activeClass || 'active';
 		this.toggleButtonSelector = options.toggleButtonSelector || false;
 		this.toggleBoxSelector = options.toggleBoxSelector || false;
@@ -35,7 +35,7 @@ class SlideNav {
 
 	getElements() {
 		this.toggleButton = document.querySelector(this.toggleButtonSelector);
-		if(this.toggleButton) {
+		if (this.toggleButton) {
 			this.opened = false;
 		}
 		this.toggleBoxes = document.querySelectorAll(this.toggleBoxSelector);
@@ -50,7 +50,7 @@ class SlideNav {
 			}
 		});
 		// toggle button
-		if(this.toggleButton) {
+		if (this.toggleButton) {
 			this.toggleButton.addEventListener("click", (e) => {
 				setTimeout(() => {
 					this.opened ? this.hideNavBox() : this.showNavBox();
@@ -59,7 +59,7 @@ class SlideNav {
 		};
 
 		// anchors
-		for(let anchor of this.navAnchors) {
+		for (let anchor of this.navAnchors) {
 			anchor.addEventListener("click", (e) => {
 				e.preventDefault();
 				let linkHash = this.getHash(e.currentTarget.href);
@@ -73,15 +73,15 @@ class SlideNav {
 	}
 
 	setActiveAnchor() {
-		for(let anchor of this.navAnchors) {
+		for (let anchor of this.navAnchors) {
 			const linkHash = this.getHash(anchor.href),
 				section = this.getSection(linkHash),
 				offset = this.scrollDoc.scrollTop,
 				scrollHeight = this.scrollDoc.scrollHeight;
 
-			if(section && (((section.offsetTop <= offset) && (section.offsetTop + section.offsetHeight > offset)) || ((offset + window.innerHeight) == scrollHeight))) {
+			if (section && (((section.offsetTop <= offset) && (section.offsetTop + section.offsetHeight > offset)) || ((offset + window.innerHeight) == scrollHeight))) {
 				for(let link of this.navAnchors) {
-					if(link.href != anchor.href) link.classList.remove('active');
+					if (link.href != anchor.href) link.classList.remove('active');
 				}
 				anchor.classList.add('active');
 			}
@@ -90,7 +90,7 @@ class SlideNav {
 
 	goToSection(linkHash) {
 		const section = this.getSection(linkHash);
-		if(section) {
+		if (section) {
 			const offsetTop = section.offsetTop;
 			this.scrollTo(offsetTop, this.speed);
 			if(this.hideAfterSelect) this.hideNavBox();
@@ -127,8 +127,8 @@ class SlideNav {
 
 	isBoxNavTarget(target) {
 		var isTarget = false;
-		for(let box of this.toggleBoxes) {
-			if(this.isClosestElement(target, box)) isTarget = true;
+		for (let box of this.toggleBoxes) {
+			if (this.isClosestElement(target, box)) isTarget = true;
 		}
 		return isTarget;
 	}
@@ -153,8 +153,8 @@ class SlideNav {
 	}
 
 	showNavBox() {
-		for(let box of this.toggleBoxes) {
-			if(this.navBoxToggleClass) {
+		for (let box of this.toggleBoxes) {
+			if (this.navBoxToggleClass) {
 				box.classList.add(this.navBoxToggleClass);
 			} else {
 				box.style.display = 'block';
