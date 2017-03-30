@@ -52,5 +52,5 @@ gulp.task('es6', function() {
 
 gulp.task('default', ['js', 'es6', 'min'], function(){
 	//watch js
-	gulp.watch("./fullHeight.js", ['js', 'es6', 'min']);
+	gulp.watch("./slideNav.js", ['js', 'es6', 'min']);
 });

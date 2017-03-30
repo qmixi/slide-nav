@@ -175,6 +175,9 @@ var SlideNav = function () {
 				var offsetTop = section.offsetTop;
 				this.scrollTo(offsetTop, this.speed);
 				if (this.hideAfterSelect) this.hideNavBox();
+				if (this.changeHash) {
+					history.pushState({}, null, "#" + linkHash);
+				}
 				return true;
 			} else {
 				return false;
@@ -203,8 +206,11 @@ var SlideNav = function () {
 	}, {
 		key: 'getSection',
 		value: function getSection(linkHash) {
-			var id = "#" + linkHash;
-			return document.querySelector(id);
+			if (linkHash) {
+				var id = "#" + linkHash;
+				return document.querySelector(id);
+			}
+			return false;
 		}
 	}, {
 		key: 'getHash',
