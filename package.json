@@ -1,6 +1,6 @@
 {
   "name": "slide-nav",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ES6 Vanilla.js navigation plugin to simple use on one-page websites.",
   "main": "slideNav.js",
   "dependencies": {

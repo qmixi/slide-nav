@@ -1,5 +1,5 @@
 /*
- * slide-nav 1.0.0
+ * slide-nav 1.0.1
  * ES6 Vanilla.js navigation plugin to simple use on one-page websites.
  * https://github.com/qmixi/slide-nav
  *
