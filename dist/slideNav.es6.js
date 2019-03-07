@@ -7,7 +7,7 @@
  * Released under the MIT license.
 */
 
-class SlideNav {
+export default class SlideNav {
 
 	constructor(options) {
 		//default values
